@@ -450,9 +450,8 @@ async def on_shutdown(dispatcher: Dispatcher):
     await dispatcher.storage.wait_closed()
     
 if __name__ == '__main__':
-    try:
-        executor.start_polling(dp, skip_updates=True, on_shutdown=on_shutdown, loop=loop)
-    except Exception as e:
-        print(f"Ошибка запуска бота: {e}")
+    from aiogram import executor
+    executor.start_polling(dp, skip_updates=True)
+
 
     
