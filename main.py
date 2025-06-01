@@ -1,3 +1,5 @@
+import logging
+logging.basicConfig(level=logging.INFO)
 from settings import *
 from messages import *
 from functions import *
