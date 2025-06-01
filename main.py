@@ -165,7 +165,7 @@ async def channel_to_up_handle(m: types.Message):
                     if status_bot_in_channel.status == 'administrator':
                         number = save_channel(channel_id = get_channel.id, writer = m.from_user.id)
                         cancel_promotion = InlineKeyboardMarkup()
-                        cancel_promotion.add(InlineKeyboardButton(text = '🚫 Отмена', callback_data = 'cancel_' + str(number)))
+                        cancel_promotion.add(InlineKeyboardButton(text = '🚫 Bekor qilish', callback_data = 'cancel_' + str(number)))
                         await bot.delete_message(message_id = m.message_id  - 1, chat_id = m.from_user.id)
                         await m.reply(SEND_SUB_COUNT_1(m), reply = False, parse_mode = 'Markdown', reply_markup = cancel_promotion)
                         state = dp.current_state(user = m.from_user.id)
@@ -194,7 +194,7 @@ async def handle_get_sub_count(m: types.Message):
         username = await bot.get_chat(channel_stat[0][0][1])
         username = username.username
         confirmation_menu = InlineKeyboardMarkup()
-        confirmation_menu.add(InlineKeyboardButton(text = '🚫 Bekor qilish', callback_data = 'cancel_' + str(channel_stat[-1])), InlineKeyboardButton(text = '✅ Подтвердить', callback_data = 'confirm_' + str(channel_stat[-1])))
+        confirmation_menu.add(InlineKeyboardButton(text = '🚫 Bekor qilish', callback_data = 'cancel_' + str(channel_stat[-1])), InlineKeyboardButton(text = '✅ Tasdiqlash', callback_data = 'confirm_' + str(channel_stat[-1])))
         state = dp.current_state(user = m.from_user.id)
         await state.set_state('CONFIRMATION')
         await bot.delete_message(message_id = m.message_id  - 1, chat_id = m.from_user.id)
@@ -450,5 +450,9 @@ async def on_shutdown(dispatcher: Dispatcher):
     await dispatcher.storage.wait_closed()
     
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates = True, on_shutdown = on_shutdown, loop = loop)
+    try:
+        executor.start_polling(dp, skip_updates=True, on_shutdown=on_shutdown, loop=loop)
+    except Exception as e:
+        print(f"Ошибка запуска бота: {e}")
+
     
