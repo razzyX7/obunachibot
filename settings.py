@@ -1,5 +1,5 @@
 
-token = "7996365560:AAHpI7Urdx8WrKnfXt3shO_v0J_3TyxY7-s"
+token = "7996365560:AAE6qS4LK0sq4Oh6wM41Q18xrXwghLh8TqM"
 
 botname = ''
 
