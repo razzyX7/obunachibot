@@ -45,8 +45,8 @@ class UserStates(Helper):
 
     
 main_menu = ReplyKeyboardMarkup(resize_keyboard = True)
-main_menu.add('✔️ Kanallarga obuna bolish', '➕ Obunachilarni olish')
-main_menu.add('👤 Profil', '👣 Hamkorlik dasturi')
+main_menu.add('✔️ Kanallarga obuna bolish', '➕ Obunachilarni Olish')
+main_menu.add('👤 Profil', '👣 Hamkorlik Dasturi')
 
 admin_menu = InlineKeyboardMarkup()
 statistics_bt = InlineKeyboardButton(text = '📊 Statistika', callback_data = 'stat')
