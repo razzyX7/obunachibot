@@ -1,5 +1,4 @@
-import logging
-logging.basicConfig(level=logging.INFO)
+import os
 from settings import *
 from messages import *
 from functions import *
